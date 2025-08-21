@@ -127,9 +127,8 @@ export function ChatInterface({ userId, className = '' }: ChatInterfaceProps) {
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
-              Z
+              PMZara
             </div>
-            Zara AI Companion
           </CardTitle>
           <div className="flex items-center gap-2">
             <Button
@@ -160,8 +159,7 @@ export function ChatInterface({ userId, className = '' }: ChatInterfaceProps) {
           <div className="space-y-4 pb-4">
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
-                <p>Start a conversation with Zara!</p>
-                <p className="text-sm">She's here to help you organize and chat.</p>
+                <p>Start a conversation</p>
               </div>
             )}
 

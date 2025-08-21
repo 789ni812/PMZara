@@ -20,11 +20,9 @@ export default function HomePage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            Welcome to Zara
+            PMZara v0.1
           </h1>
-          <p className="text-lg text-slate-600 mb-6">
-            Your AI companion for organization and conversation
-          </p>
+          
           
           {/* Navigation */}
           <div className="flex justify-center gap-4">
@@ -34,7 +32,7 @@ export default function HomePage() {
               className="flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              Chat with Zara
+              Chat
             </Button>
             <Button 
               variant={showTasks ? "default" : "outline"} 
