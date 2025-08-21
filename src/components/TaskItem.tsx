@@ -83,15 +83,15 @@ export function TaskItem({ task, onUpdate, onDelete, onEdit }: TaskItemProps) {
     <Card className={`transition-all duration-200 hover:shadow-md ${
       task.status === 'completed' ? 'opacity-75' : ''
     } ${isOverdue ? 'border-red-200 bg-red-50' : ''}`}>
-      <CardContent className="p-4">
-        <div className="flex items-start gap-3">
+      <CardContent className="p-3">
+        <div className="flex items-start gap-2">
           {/* Checkbox */}
-          <div className="pt-1">
+          <div className="pt-0.5">
             <Checkbox
               checked={task.status === 'completed'}
               onCheckedChange={handleStatusToggle}
               disabled={isUpdating}
-              className="data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600"
+              className="data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600 w-4 h-4"
             />
           </div>
 
@@ -99,14 +99,14 @@ export function TaskItem({ task, onUpdate, onDelete, onEdit }: TaskItemProps) {
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
-                <h3 className={`font-medium text-gray-900 ${
+                <h3 className={`font-medium text-gray-900 text-sm ${
                   task.status === 'completed' ? 'line-through text-gray-500' : ''
                 }`}>
                   {task.title}
                 </h3>
                 
                 {task.description && (
-                  <p className={`text-sm text-gray-600 mt-1 ${
+                  <p className={`text-xs text-gray-600 mt-1 ${
                     task.status === 'completed' ? 'line-through' : ''
                   }`}>
                     {task.description}
@@ -114,30 +114,30 @@ export function TaskItem({ task, onUpdate, onDelete, onEdit }: TaskItemProps) {
                 )}
 
                 {/* Task Meta */}
-                <div className="flex items-center gap-3 mt-2">
+                <div className="flex items-center gap-2 mt-1.5">
                   {/* Category */}
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs px-1.5 py-0.5">
                     {task.category}
                   </Badge>
 
                   {/* Priority */}
-                  <Badge className={`text-xs ${priorityConfig.color}`}>
-                    <PriorityIcon className="w-3 h-3 mr-1" />
+                  <Badge className={`text-xs px-1.5 py-0.5 ${priorityConfig.color}`}>
+                    <PriorityIcon className="w-2.5 h-2.5 mr-0.5" />
                     {task.priority}
                   </Badge>
 
                   {/* Status */}
-                  <Badge className={`text-xs ${statusConfig.color}`}>
+                  <Badge className={`text-xs px-1.5 py-0.5 ${statusConfig.color}`}>
                     {statusConfig.label}
                   </Badge>
 
                   {/* Due Date */}
                   {task.dueDate && (
-                    <div className={`flex items-center gap-1 text-xs ${
+                    <div className={`flex items-center gap-0.5 text-xs ${
                       isOverdue ? 'text-red-600' : 
                       isDueToday ? 'text-orange-600' : 'text-gray-500'
                     }`}>
-                      <Calendar className="w-3 h-3" />
+                      <Calendar className="w-2.5 h-2.5" />
                       {formatDueDate(task.dueDate)}
                       {isOverdue && <span className="font-medium">(Overdue)</span>}
                     </div>
@@ -146,30 +146,30 @@ export function TaskItem({ task, onUpdate, onDelete, onEdit }: TaskItemProps) {
 
                 {/* Completion Date */}
                 {task.completedAt && (
-                  <div className="flex items-center gap-1 text-xs text-green-600 mt-1">
-                    <CheckCircle className="w-3 h-3" />
+                  <div className="flex items-center gap-0.5 text-xs text-green-600 mt-1">
+                    <CheckCircle className="w-2.5 h-2.5" />
                     Completed {new Date(task.completedAt).toLocaleDateString()}
                   </div>
                 )}
               </div>
 
               {/* Actions */}
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => onEdit(task)}
-                  className="h-8 w-8 p-0"
+                  className="h-6 w-6 p-0"
                 >
-                  <Edit className="h-4 w-4" />
+                  <Edit className="h-3 w-3" />
                 </Button>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={handleDelete}
-                  className="h-8 w-8 p-0 text-red-600 hover:text-red-700 hover:bg-red-50"
+                  className="h-6 w-6 p-0 text-red-600 hover:text-red-700 hover:bg-red-50"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash2 className="h-3 w-3" />
                 </Button>
               </div>
             </div>

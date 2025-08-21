@@ -156,7 +156,7 @@ export function ChatInterface({ userId, className = '' }: ChatInterfaceProps) {
 
       {/* Messages */}
       <CardContent className="flex-1 p-0">
-        <ScrollArea ref={scrollAreaRef} className="h-[500px] px-4">
+        <ScrollArea ref={scrollAreaRef} className="h-[400px] px-4">
           <div className="space-y-4 pb-4">
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">

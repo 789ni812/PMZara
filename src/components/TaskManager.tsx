@@ -216,10 +216,10 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
   return (
     <div className={`flex flex-col h-full ${className}`}>
       {/* Header */}
-      <CardHeader className="pb-4">
+      <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-lg">
               <Calendar className="w-5 h-5" />
               Task Manager
             </CardTitle>
@@ -230,7 +230,7 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
               )}
             </p>
           </div>
-          <Button onClick={() => setShowTaskForm(true)} className="flex items-center gap-2">
+          <Button onClick={() => setShowTaskForm(true)} className="flex items-center gap-2" size="sm">
             <Plus className="w-4 h-4" />
             New Task
           </Button>
@@ -238,8 +238,8 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
       </CardHeader>
 
       {/* Filters */}
-      <CardContent className="pb-4">
-        <div className="space-y-4">
+      <CardContent className="pb-3">
+        <div className="space-y-3">
           {/* Search */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -247,19 +247,19 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
               placeholder="Search tasks..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 h-9"
             />
           </div>
 
           {/* Filter Controls */}
           <div className="flex flex-wrap gap-2">
             {/* Status Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-700">Status:</span>
+            <div className="flex items-center gap-1">
+              <span className="text-xs font-medium text-gray-700">Status:</span>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as FilterStatus)}
-                className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="all">All</option>
                 <option value="pending">Pending</option>
@@ -269,12 +269,12 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
             </div>
 
             {/* Priority Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-700">Priority:</span>
+            <div className="flex items-center gap-1">
+              <span className="text-xs font-medium text-gray-700">Priority:</span>
               <select
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value as FilterPriority)}
-                className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="all">All</option>
                 <option value="high">High</option>
@@ -284,12 +284,12 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
             </div>
 
             {/* Category Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-700">Category:</span>
+            <div className="flex items-center gap-1">
+              <span className="text-xs font-medium text-gray-700">Category:</span>
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="all">All</option>
                 {categories.map(category => (
@@ -303,19 +303,19 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
 
       {/* Task List */}
       <CardContent className="flex-1 p-0">
-        <ScrollArea className="h-[500px] px-4">
+        <ScrollArea className="h-[400px] px-4">
           {isLoading ? (
             <div className="flex items-center justify-center py-8">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-                <span className="text-gray-600">Loading tasks...</span>
+                <span className="text-gray-600 text-sm">Loading tasks...</span>
               </div>
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-8">
               <div className="text-center">
-                <AlertTriangle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-                <p className="text-red-600">{error}</p>
+                <AlertTriangle className="w-6 h-6 text-red-500 mx-auto mb-2" />
+                <p className="text-red-600 text-sm">{error}</p>
                 <Button 
                   variant="outline" 
                   size="sm" 
@@ -328,25 +328,25 @@ export function TaskManager({ userId = 'demo-user-123', className = '' }: TaskMa
             </div>
           ) : filteredTasks.length === 0 ? (
             <div className="text-center py-8">
-              <Clock className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
+              <Clock className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+              <h3 className="text-sm font-medium text-gray-900 mb-1">
                 {searchTerm ? 'No tasks found' : 'No tasks yet'}
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 text-xs mb-3">
                 {searchTerm 
                   ? 'Try adjusting your search or filters'
                   : 'Create your first task to get started!'
                 }
               </p>
               {!searchTerm && (
-                <Button onClick={() => setShowTaskForm(true)}>
-                  <Plus className="w-4 h-4 mr-2" />
+                <Button onClick={() => setShowTaskForm(true)} size="sm">
+                  <Plus className="w-3 h-3 mr-1" />
                   Create Task
                 </Button>
               )}
             </div>
           ) : (
-            <div className="space-y-3 pb-4">
+            <div className="space-y-2 pb-4">
               {filteredTasks.map(task => (
                 <TaskItem
                   key={task.id}
