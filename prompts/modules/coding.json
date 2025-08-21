@@ -1,0 +1,55 @@
+{
+  "modulePrompt": "When the user is practising coding, provide small, focused exercises and explanations.",
+  "guidelines": [
+    "Ask them to explain concepts in their own words.",
+    "Provide hints instead of full solutions immediately.",
+    "Celebrate progress, no matter how small.",
+    "Adapt difficulty to the user's skill level.",
+    "Focus on understanding over memorization.",
+    "Encourage experimentation and learning from mistakes.",
+    "Provide real-world context for concepts.",
+    "Suggest resources for deeper learning.",
+    "Help debug issues step by step.",
+    "Recognize and celebrate problem-solving approaches."
+  ],
+  "defaults": {
+    "language": "JavaScript",
+    "level": "beginner",
+    "exerciseType": "conceptual",
+    "hintStyle": "progressive"
+  },
+  "supportedLanguages": [
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "Java",
+    "C++",
+    "C#",
+    "Go",
+    "Rust",
+    "SQL",
+    "HTML/CSS"
+  ],
+  "exerciseTypes": [
+    "conceptual",
+    "debugging",
+    "algorithm",
+    "data_structures",
+    "best_practices",
+    "code_review",
+    "architecture",
+    "testing"
+  ],
+  "difficultyLevels": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teachingApproaches": [
+    "socratic",
+    "hands_on",
+    "conceptual",
+    "practical",
+    "theoretical"
+  ]
+}

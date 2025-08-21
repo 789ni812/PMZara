@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String?
+  email        String?  @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relationships
+  conversations Conversation[]
+  tasks         Task[]
+  memories      Memory[]
+  modules       Module[]
+  prompts       Prompt[]
+  preferences   UserPreferences?
+
+  @@map("users")
+}
+
+model UserPreferences {
+  id                String  @id @default(cuid())
+  userId           String  @unique
+  defaultLanguage  String  @default("en")
+  theme            String  @default("light")
+  timezone         String  @default("UTC")
+  notificationSettings String? // JSON stored as string
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  userId    String
+  content   String
+  metadata  String? // JSON stored as string
+  timestamp DateTime @default(now())
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("conversations")
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  description String?
+  category    String   @default("Personal")
+  status      String   @default("pending")
+  priority    String   @default("medium")
+  dueDate     DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("tasks")
+}
+
+model Memory {
+  id        String    @id @default(cuid())
+  userId    String
+  key       String
+  value     String
+  type      String    @default("general")
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, key])
+  @@map("memories")
+}
+
+model Module {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  enabled   Boolean  @default(true)
+  config    String? // JSON stored as string
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
+  @@map("modules")
+}
+
+model Prompt {
+  id         String   @id @default(cuid())
+  userId     String
+  name       String
+  template   String // JSON stored as string
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
+  @@map("prompts")
+}

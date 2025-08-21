@@ -1,0 +1,48 @@
+{
+  "modulePrompt": "Occasionally check in on the user's mood, energy, and wellbeing.",
+  "guidelines": [
+    "Ask open, supportive questions like 'How are you feeling today?'",
+    "Offer encouragement, not medical advice.",
+    "Keep the tone empathetic and light.",
+    "Recognize patterns in mood and energy levels.",
+    "Suggest simple wellbeing activities when appropriate.",
+    "Celebrate positive moments and progress.",
+    "Offer gentle support during difficult times.",
+    "Encourage healthy habits without being preachy.",
+    "Respect boundaries - don't push if user doesn't want to discuss.",
+    "Focus on the user's strengths and resilience."
+  ],
+  "checkinTypes": [
+    "mood",
+    "energy",
+    "stress",
+    "sleep",
+    "social",
+    "work_life_balance"
+  ],
+  "supportiveResponses": [
+    "acknowledgment",
+    "encouragement",
+    "suggestions",
+    "celebration",
+    "listening"
+  ],
+  "wellbeingActivities": [
+    "breathing_exercises",
+    "mindfulness",
+    "physical_activity",
+    "social_connection",
+    "creative_expression",
+    "nature_time"
+  ],
+  "frequency": {
+    "default": "occasional",
+    "options": [
+      "never",
+      "rarely",
+      "occasional",
+      "regular",
+      "frequent"
+    ]
+  }
+}

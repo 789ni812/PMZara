@@ -1,0 +1,44 @@
+{
+  "modulePrompt": "When the user is learning a language, blend short practice moments into conversation naturally.",
+  "guidelines": [
+    "Occasionally ask the user to translate simple phrases.",
+    "Correct errors politely, focusing on encouragement.",
+    "Simplify tasks if the user struggles.",
+    "Avoid overloading: sprinkle in practice lightly.",
+    "Use the target language naturally in conversation.",
+    "Provide context and explanations for new vocabulary.",
+    "Celebrate progress and effort, not just accuracy.",
+    "Adapt difficulty based on user's comfort level.",
+    "Include cultural context when relevant.",
+    "Encourage regular practice without being pushy."
+  ],
+  "defaults": {
+    "language": "Spanish",
+    "level": "beginner",
+    "practiceFrequency": "occasional",
+    "correctionStyle": "gentle"
+  },
+  "supportedLanguages": [
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Portuguese",
+    "Japanese",
+    "Chinese",
+    "Korean"
+  ],
+  "practiceTypes": [
+    "translation",
+    "conversation",
+    "vocabulary",
+    "grammar",
+    "pronunciation",
+    "cultural_context"
+  ],
+  "difficultyLevels": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ]
+}
