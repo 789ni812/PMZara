@@ -1,4 +1,7 @@
 import { ChatInterface } from '@/components/ChatInterface';
+import { Button } from '@/components/ui/button';
+import { Calendar, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HomePage() {
   // For now, we'll use a simple user ID. In a real app, this would come from authentication
@@ -12,9 +15,25 @@ export default function HomePage() {
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
             Welcome to Zara
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-600 mb-6">
             Your AI companion for organization and conversation
           </p>
+          
+          {/* Navigation */}
+          <div className="flex justify-center gap-4">
+            <Link href="/">
+              <Button variant="default" className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4" />
+                Chat with Zara
+              </Button>
+            </Link>
+            <Link href="/tasks">
+              <Button variant="outline" className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                Manage Tasks
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Main Chat Interface */}
